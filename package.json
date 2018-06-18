@@ -1,0 +1,14 @@
+{
+    "name": "api-counter",
+    "version": "0.1.0",
+    "description": "",
+    "keywords": [],
+    "main": "src/index.js",
+    "dependencies": {
+        "socket.io": "^2.1.1"
+    },
+    "devDependencies": {},
+    "scripts": {
+        "start": "node src/index.js"
+    }
+}
