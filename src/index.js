@@ -1,5 +1,7 @@
 const io = require('socket.io')()
 
+io.origins('*:*')
+
 const initialCount = 1234
 
 io.on('connection', (client) => {
