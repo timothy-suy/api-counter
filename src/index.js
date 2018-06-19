@@ -1,9 +1,14 @@
-const io = require('socket.io')()
+const app = require('express')();
+const http = require('http').Server(app);
+const io = require('socket.io')(http);
 
-io.origins('*:*')
+app.get('/', function(req, res){
+  res.sendFile(__dirname + '/public/index.html');
+});
 
 const initialCount = 1234
 
+io.origins('*:*')
 io.on('connection', (client) => {
   client.auth = false
   client.on('authenticate', function (data) {
@@ -43,5 +48,6 @@ checkAuthToken = ((token, cb) => {
 })
 
 const port = 8888
-io.listen(port)
-console.log('listening on port ', port)
+http.listen(port, function(){
+  console.log('listening on *:', port);
+});
