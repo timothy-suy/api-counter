@@ -42,6 +42,6 @@ checkAuthToken = ((token, cb) => {
   return cb(null, true);
 })
 
-const port = 80
+const port = 8888
 io.listen(port)
 console.log('listening on port ', port)
