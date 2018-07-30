@@ -3,14 +3,6 @@ const http = require('http').Server(app);
 const io = require('socket.io')(http);
 const path = require('path');
 
-//debug, show 'hello world' page on standard GET
-app.get('/', function(req, res){
-  res.sendFile(path.resolve(__dirname + '/../public/index.html'));
-});
-app.listen(80, function(){
-  console.log('listening on *:', port);
-});
-
 const initialCount = 1234
 
 io.origins('*:*')
