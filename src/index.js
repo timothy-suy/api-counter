@@ -1,7 +1,6 @@
 const app = require('express')();
 const http = require('http').Server(app);
 const io = require('socket.io')(http);
-const path = require('path');
 
 const initialCount = 1234
 
@@ -9,11 +8,15 @@ io.origins('*:*')
 io.on('connection', (client) => {
   client.auth = false
   client.on('authenticate', function (data) {
+    console.log(data);
     //check the auth data sent by the client
     checkAuthToken(data.token, function (err, success) {
       if (!err && success) {
         console.log('Authenticated client ', client.id)
         client.auth = true
+      }
+      else {
+        console.log(err);
       }
     })
   })
