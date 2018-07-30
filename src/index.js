@@ -3,7 +3,7 @@ const http = require('http').Server(app)
 const io = require('socket.io')(http)
 const path = require('path')
 
-require('./utils/enterprise.js')()
+import { validateEnterprise } from './utils/enterprise'
 
 const port = 8084
 

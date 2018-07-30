@@ -9,6 +9,19 @@
 # production
 /build
 
+# lock files
+yarn.lock
+package-lock.json
+
+# Build directory
+lib
+
+# Databases used for local development
+*.sqlite3
+
+# Configuration file
+config.json
+
 # misc
 .DS_Store
 .env.local

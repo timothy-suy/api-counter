@@ -1,0 +1,9 @@
+{
+    "sourceRoot": "src",
+    "filenameRelative": "index.js",
+    "plugins": [
+        "transform-es2015-modules-commonjs",
+        "transform-strict-mode"
+    ],
+    "highlightCode": true
+}

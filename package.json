@@ -1,15 +1,44 @@
 {
     "name": "api-counter",
     "version": "0.1.0",
-    "description": "",
+    "description": "API service that provides the /counter endpoint",
     "keywords": [],
-    "main": "src/index.js",
+    "main": "./lib//index.js",
+    "directories": {
+        "lib": "./lib"
+    },
+    "scripts": {
+        "build": "babel src -d lib --source-maps inline --ignore **/*.test.js",
+        "start": "concurrently 'npm run build -- --watch' 'nodemon run 4000 | bunyan'"
+    },
+    "author": {
+        "name": "Timothy Suy",
+        "email": "timothy@skedify.co",
+        "url": "http://www.skedify.me"
+    },
+    "license": "LicenseRef-LICENSE",
+    "homepage": "https://github.com/timothy-suy/api-counter",
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/timothy-suy/api-counter.git"
+    },
     "dependencies": {
+        "bunyan": "^1.8.12",
         "express": "^4.16.3",
+        "knex": "0.14.2",
         "socket.io": "^2.1.1"
     },
-    "devDependencies": {},
-    "scripts": {
-        "start": "node src/index.js"
+    "devDependencies": {
+        "babel-cli": "^6.26.0",
+        "babel-eslint": "^8.2.1",
+        "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
+        "babel-plugin-transform-remove-console": "^6.8.5",
+        "babel-plugin-transform-remove-debugger": "^6.8.5",
+        "babel-plugin-transform-strict-mode": "^6.24.1",
+        "babel-plugin-unassert": "^2.1.2",
+        "concurrently": "^3.5.1",
+        "mock-knex": "^0.4.0",
+        "nodemon": "^1.14.10",
+        "sqlite3": "^3.1.13"
     }
 }
