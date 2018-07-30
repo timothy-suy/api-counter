@@ -1,11 +1,12 @@
-const app = require('express')();
-const http = require('http').Server(app);
-const io = require('socket.io')(http);
-const path = require('path');
+const app = require('express')()
+const http = require('http').Server(app)
+const io = require('socket.io')(http)
+const path = require('path')
 
 app.get('/', function(req, res){
   res.sendFile(path.resolve(__dirname + '/../public/index.html'));
 });
+const port = 8084
 
 io.origins('*:*')
 io.on('connection', (client) => {
@@ -22,7 +23,6 @@ io.on('connection', (client) => {
   })
 })
 
-const port = 8084
-http.listen(port, function(){
-  console.log('listening on *:', port);
-});
+http.listen(port, function () {
+  console.log('listening on *:', port)
+})
