@@ -1,9 +1,11 @@
 const app = require('express')();
 const http = require('http').Server(app);
 const io = require('socket.io')(http);
+const path = require('path');
 
+//debug, show 'hello world' page on standard GET
 app.get('/', function(req, res){
-  res.sendFile(__dirname + '/public/index.html');
+  res.sendFile(path.resolve(__dirname + '/../public/index.html'));
 });
 
 const initialCount = 1234
